@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" manifest="clock.manifest">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; Charset=utf-8">
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <title>LSY - 网站首页</title>
+    <link rel="shortcut icon" href="../images/title.jpg" type="image/x-icon">
+    <!--Layui-->
+    <link href="../plug/layui/css/layui.css" rel="stylesheet"/>
+    <!--font-awesome-->
+    <link href="../plug/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <!--全局样式表-->
+    <link href="../css/global.css" rel="stylesheet"/>
+    <!-- 本页样式表 -->
+    <link href="../css/home.css" rel="stylesheet"/>
+    <!-- H5新样式 -->
+    <link href="../css/other.css" rel="stylesheet"/>
+    <style>
+        #result {
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+
+        #img {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        #img:hover {
+            z-index: 1;
+        }
+
+        #file {
+            display: block;
+            width: 66%;
+            height: 20px;
+            margin: 20% 15%;
+            position: absolute;
+            z-index: 1;
+        }
+
+        #file:hover {
+            z-index: 2;
+        }
+
+        #change {
+            display: block;
+            margin: 60% 15%;
+            width: 66%;
+            height: 20px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        #change:hover {
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+<!-- 导航 -->
+<nav class="blog-nav layui-header">
+    <div class="blog-container">
+        <!-- QQ互联登陆 -->
+        <a href="javascript:;" class="blog-user">
+            <i class="fa fa-qq"></i> </a>
+        <a href="javascript:;" class="blog-user layui-hide">
+            <img src="../images/lsy.jpg"/> </a>
+        <!-- 不落阁 -->
+
+        <a class="blog-logo" href="home.html"><img src="../images/title.jpg" width="50px" draggable></a>
+        <!-- 导航菜单 -->
+        <ul class="layui-nav" lay-filter="nav">
+            <li class="layui-nav-item layui-this">
+                <a href="home.html"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a></li>
+            <li class="layui-nav-item">
+                <a href="resource.html"><i class="fa fa-file-text fa-fw"></i>&nbsp;作品展</a></li>
+            <li class="layui-nav-item">
+                <a href="article.html"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a></li>
+            <li class="layui-nav-item">
+                <a href="timeline.html"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;动态分享</a></li>
+            <li class="layui-nav-item">
+                <a href="about.html"><i class="fa fa-info fa-fw"></i>&nbsp;个人简介</a></li>
+            <li class="layui-nav-item">
+                <a href="aboutleave.html"><i class="fa fa-info fa-fw"></i>&nbsp;留言板</a></li>
+        </ul>
+        <!-- 手机和平板的导航开关 -->
+        <a class="blog-navicon" href="javascript:;">
+            <i class="fa fa-navicon"></i> </a></div>
+</nav>
+<!-- 主体（一般只改变这里的内容） -->
+<div class="blog-body">
+    <!-- canvas -->
+    <canvas id="canvas-banner" style="background: #393D49;">
+
+    </canvas>
+    <!--为了及时效果需要立即设置canvas宽高，否则就在home.js中设置-->
+    <script type="text/javascript">
+        var canvas = document.getElementById('canvas-banner');
+        canvas.width = window.document.body.clientWidth - 10;//减去滚动条的宽度
+        if (screen.width >= 992) {
+            canvas.height = window.innerHeight * 1 / 3;
+        } else {
+            canvas.height = window.innerHeight * 2 / 7;
+        }
+    </script>
+    <!-- 这个一般才是真正的主体内容 -->
+    <div class="blog-container">
+        <div class="blog-main">
+
+            <!--左边文章列表-->
+            <div class="blog-main-left">
+                <div class="article shadow">
+                    <div class="article-left">
+                        <img src="../images/cover/four.jpg"/>
+                    </div>
+                    <div class="article-right">
+                        <div class="article-title">
+                            <a href="detail.html">文件上传及拖放 在右边个人头像位置</a>
+                        </div>
+                        <div class="article-abstract">
+                            右边头像位置实现文件上传和更换显示图片，将鼠标移动到头像图片位置，选择更换头像按钮，选择文件中图片确定，点击更换，实现头像图片更换。拖放图片是想拖放。
+
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="article-footer">
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2019-05-20</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;LLLLLsy</span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">3d Max - 动画</a></span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;93</span>
+                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;522</span>
+                    </div>
+                </div>
+
+                <div class="article shadow">
+                    <div class="article-left">
+                        <img src="../images/cover/timo.jpg"/>
+                    </div>
+                    <div class="article-right">
+                        <div class="article-title">
+                            <a href="detail.html">canvas绘图 点击左边任意标题和右边热文排行标题 页面跳转详情页面</a>
+                        </div>
+                        <div class="article-abstract">
+                            首页页面导航栏下面canvas动画、详情页面皮卡丘canvas绘图、动态页面右上角时钟canvas动画
+
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="article-footer">
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2019-04-18</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;LLLLLsy</span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">3d Max - 建模</a></span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;74</span>
+                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;427</span>
+                    </div>
+                </div>
+
+                <div class="article shadow">
+                    <div class="article-left">
+                        <img src="../images/cover/cc.jpg"/>
+                    </div>
+                    <div class="article-right">
+                        <div class="article-title">
+                            <a href="detail.html">表单收集元素 在留言板下面email框</a>
+                        </div>
+                        <div class="article-abstract">EMAIL框实现
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="article-footer">
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2018-12-18</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;LLLLLsy</span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">3d Max - 游戏</a></span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;54</span>
+                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;345</span>
+                    </div>
+                </div>
+
+                <div class="article shadow">
+                    <div class="article-left">
+                        <img src="../images/cover/wan.jpg"/>
+                    </div>
+                    <div class="article-right">
+                        <div class="article-title">
+                            <a href="detail.html">本地存储 在留言板最下面搜索姓名得到姓名、EMAIL和时间</a>
+                        </div>
+                        <div class="article-abstract">
+                            还可以实现回复功能 得到姓名、内容和时间信息。
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="article-footer">
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2018-03-18</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;LLLLLsy</span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">AE - 动画</a></span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;34</span>
+                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;269</span>
+                    </div>
+                </div>
+
+
+                <div class="article shadow">
+                    <div class="article-left">
+                        <img src="../images/cover/01.jpg"/>
+                    </div>
+                    <div class="article-right">
+                        <div class="article-title">
+                            <a href="detail.html">CSS翻转 在动态分享的每张图片</a>
+                        </div>
+                        <div class="article-abstract">
+                            还有作品展里 三维动画类的视频里悬停实现放大10%的效果！
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="article-footer">
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2018-11-18</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;LLLLLsy</span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">Python的高级与应用</a></span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;31</span>
+                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;256</span>
+                    </div>
+                </div>
+
+                <div class="article shadow">
+                    <div class="article-left">
+                        <img src="../images/cover/03.jpg"/>
+                    </div>
+                    <div class="article-right">
+                        <div class="article-title">
+                            <a href="detail.html">基于Python扩展模块！</a>
+                        </div>
+                        <div class="article-abstract">
+                            该模块主要是针对大数据分析而制作！使用该模块后即可实现每页显示多少条数据的控制！分析数据，产生饼状图数据报表！
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="article-footer">
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2018-11-18</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;LLLLLsy</span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">Python的高级与应用</a></span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;28</span>
+                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;145</span>
+                    </div>
+                </div>
+                <div class="article shadow">
+                    <div class="article-left">
+                        <img src="../images/cover/ps2.jpg"/>
+                    </div>
+                    <div class="article-right">
+                        <div class="article-title">
+                            <a href="detail.html">基于PhotoShop制作！</a>
+                        </div>
+                        <div class="article-abstract">
+                            该模块主要是针对当前版本aftereffect和photoshop而制作，使用该模块后即可实现每页显示多少条数据的控制！
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="article-footer">
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-03-08</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;LLLLLsy</span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">PhotoShop</a></span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;23</span>
+                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;133</span>
+                    </div>
+                </div>
+                <div class="article shadow">
+                    <div class="article-left">
+                        <img src="../images/cover/sy.png"/>
+                    </div>
+                    <div class="article-right">
+                        <div class="article-title">
+                            <a href="detail.html">基于laypage的layui扩展模块（pagesize.js）！</a>
+                        </div>
+                        <div class="article-abstract">
+                            该模块主要是针对当前版本laypage没有页容量控制功能而制作，使用该模块后即可实现每页显示多少条数据的控制！本人原创，但是可能有可能只对本人的分页写法有用！
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="article-footer">
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-03-18</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;LLLLLsy</span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">Web前端</a></span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>
+                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
+                    </div>
+                </div>
+                <div class="article shadow">
+                    <div class="article-left">
+                        <img src="../images/cover/zp.png"/>
+                    </div>
+                    <div class="article-right">
+                        <div class="article-title">
+                            <a href="detail.html">基于PhotoShop制作！</a>
+                        </div>
+                        <div class="article-abstract">
+                            该模块主要是针对当前版本aftereffect和photoshop而制作，使用该模块后即可实现每页显示多少条数据的控制！
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="article-footer">
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-03-08</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;LLLLLsy</span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">PhotoShop</a></span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;23</span>
+                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;133</span>
+                    </div>
+                </div>
+            </div>
+            <!--右边小栏目-->
+            <div class="blog-main-right">
+                <div class="blogerinfo shadow">
+                    <div class="blogerinfo-figure">
+                        <div id="result">
+                            <img src="../images/lsy.jpg" id="img" draggable/>
+                            <input type="file" id="file" multiple accept="image/*" value="更换头像"/>
+                            <input type="button" id="change" onClick="ReadImg();" value="更换"/>
+                        </div>
+                        <script type="text/javascript" language="JavaScript">
+                            function $$(id) {
+                                return document.getElementById(id);
+                            }
+
+                            function ReadImg() {
+                                var file = $$("file").files[0];
+                                var reader = new FileReader();
+                                reader.readAsDataURL(file);
+                                reader.onload = function (e) {
+                                    var result = $$("result");
+                                    $$("img").src = this.result;
+                                }
+
+
+                            }
+                        </script>
+                    </div>
+                    <p class="blogerinfo-nickname">LLLsy</p>
+                    <p class="blogerinfo-introduce">软件工程专业新媒体方向在校仙女</p>
+                    <p class="blogerinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;福建 - 福州</p>
+                    <hr/>
+                    <div class="blogerinfo-contact">
+                        <a target="_blank" title="QQ交流" href="javascript:layer.msg('启动QQ会话窗口')"><i
+                                class="fa fa-qq fa-2x"></i></a>
+                        <a target="_blank" title="给我写信" href="javascript:layer.msg('启动邮我窗口')"><i
+                                class="fa fa-envelope fa-2x"></i></a>
+                        <a target="_blank" title="新浪微博" href="javascript:layer.msg('转到你的微博主页')"><i
+                                class="fa fa-weibo fa-2x"></i></a>
+                        <a target="_blank" title="码云" href="javascript:layer.msg('转到你的github主页')"><i
+                                class="fa fa-git fa-2x"></i></a>
+                    </div>
+                </div>
+                <div></div><!--占位-->
+                <div class="blog-module shadow">
+                    <div class="blog-module-title">热文排行</div>
+                    <ul class="fa-ul blog-module-ul">
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail.html">制作一个小提琴模型 - 3d Max建模</a></li>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail.html">面试官问我网络协议，怎么办？</a></li>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail.html">常用正则表达式</a></li>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail.html">小小的Python编程故事</a></li>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail.html">什么是二分查找？</a></li>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail.html">C#基础知识回顾-扩展方法</a></li>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail.html">java进阶（一）</a></li>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail.html">如何制作timo模型 -3d Max建模</a></li>
+                    </ul>
+                </div>
+                <div class="blog-module shadow">
+                    <div class="blog-module-title">最近分享</div>
+                    <ul class="fa-ul blog-module-ul">
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="http://pan.baidu.com/s/1c1BJ6Qc"
+                                                                       target="_blank">Canvas</a></li>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="http://pan.baidu.com/s/1kVK8UhT"
+                                                                       target="_blank">3d Max 建模</a></li>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="https://pan.baidu.com/s/1mit2aiW"
+                                                                       target="_blank">时光轴</a></li>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="https://pan.baidu.com/s/1nuAKF81"
+                                                                       target="_blank">图片轮播</a></li>
+                    </ul>
+                </div>
+                <div class="blog-module shadow">
+                    <div class="blog-module-title">一路走来</div>
+                    <dl class="footprint">
+                        <dt>2019年05月15日</dt>
+                        <dd>H5多媒体播放</dd>
+                        <dt>2019年03月10日</dt>
+                        <dd>3d Max 建模 - timo蜜蜂皮肤</dd>
+                        <dt>2019年03月09日</dt>
+                        <dd>Dreamweaver框架操作</dd>
+                        <dt>2019年02月25日</dt>
+                        <dd>unity3d-新增攻击状态</dd>
+                    </dl>
+                </div>
+                <div class="blog-module shadow">
+                    <div class="blog-module-title">后台记录</div>
+                    <dl class="footprint">
+                        <dt>2019年03月16日</dt>
+                        <dd>分页新增页容量控制</dd>
+                        <dt>2019年03月12日</dt>
+                        <dd>新增管家提醒功能</dd>
+                        <dt>2019年03月10日</dt>
+                        <dd>新增Win7快捷菜单</dd>
+                    </dl>
+                </div>
+                <div class="blog-module shadow">
+                    <div class="blog-module-title">友情链接</div>
+                    <ul class="blogroll">
+                        <li><a href="#">QQ:33355577@qq.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<!-- 获取地理位置 -->
+<p id="gro_loc"></p>
+<script>
+    function getElem(id){
+        return typeof id === 'string'?document.getElementById(id):id;
+
+    }
+    function show_it(lat,lon){
+        var str='您当前的位置，纬度;'+lat+',经度：'+lon;
+        getElem('geo_loc').innerHTML=str;
+    }
+    if(navigetor.geolocation){
+        navigator.geolocation.getCurrentPosition(
+            function(position){
+                show_it(position.coords.latitude,position.coords.longitude);
+            },function(err) {
+            getElem('geo_loc').innerHTML = err.code + "\n" + err.message;
+
+            }
+        );
+    }else{
+        getElem('geo_loc').innerHTML="您当前使用的浏览器不支持Geolocation服务";
+    }
+
+
+
+</script>
+
+
+
+<!-- 底部 -->
+<footer class="blog-footer">
+    <p><span>Copyright</span><span>&copy;</span><span>2019</span><a href="http://www.lyblogs.cn">个人网站</a><span>Design By LY</span>
+    </p>
+    <p><a href="http://www.miibeian.gov.cn/" target="_blank">QQ:33355577@qq.com</a></p>
+</footer>
+<!--侧边导航-->
+<ul class="layui-nav layui-nav-tree layui-nav-side blog-nav-left layui-hide" lay-filter="nav">
+    <li class="layui-nav-item layui-this">
+        <a href="home.html"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
+    </li>
+    <li class="layui-nav-item">
+        <a href="article.html"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+    </li>
+    <li class="layui-nav-item">
+        <a href="resource.html"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
+    </li>
+    <li class="layui-nav-item">
+        <a href="timeline.html"><i class="fa fa-road fa-fw"></i>&nbsp;点点滴滴</a>
+    </li>
+    <li class="layui-nav-item">
+        <a href="about.html"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+    </li>
+</ul>
+<!--分享窗体-->
+<div class="blog-share layui-hide">
+    <div class="blog-share-body">
+        <div style="width: 200px;height:100%;">
+            <div class="bdsharebuttonbox">
+                <a class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                <a class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                <a class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                <a class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--遮罩-->
+<div class="blog-mask animated layui-hide"></div>
+<!-- layui.js -->
+<script src="../plug/layui/layui.js"></script>
+<!-- 全局脚本 -->
+<script src="../js/global.js"></script>
+<!-- 本页脚本 -->
+<script src="../js/home.js"></script>
+</body>
+</html>
